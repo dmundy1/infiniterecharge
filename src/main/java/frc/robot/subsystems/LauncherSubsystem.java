@@ -23,15 +23,21 @@ public class LauncherSubsystem extends SubsystemBase {
 
   public WPI_TalonFX launcherMotor;
   public WPI_TalonFX launcherMotor2;
+  public WPI_TalonFX launcherMotor3;
+  public WPI_TalonFX launcherMotor4;
   WPI_TalonSRX feedMotor;
 
   public LauncherSubsystem() {
     launcherMotor = new WPI_TalonFX(LauncherConstants.LAUNCHER_MOTOR_1);
     launcherMotor2 = new WPI_TalonFX(LauncherConstants.LAUNCHER_MOTOR_2);
+    launcherMotor3 = new WPI_TalonFX(LauncherConstants.LAUNCHER_MOTOR_3);
+    launcherMotor4 = new WPI_TalonFX(LauncherConstants.LAUNCHER_MOTOR_4);
     feedMotor = new WPI_TalonSRX(Constants.ROLLER_MOTOR);
 
     launcherMotor.configFactoryDefault();
     launcherMotor2.configFactoryDefault();
+    launcherMotor3.configFactoryDefault();
+    launcherMotor4.configFactoryDefault();
     feedMotor.configFactoryDefault();
   }
 
@@ -47,10 +53,16 @@ public class LauncherSubsystem extends SubsystemBase {
     launcherMotor.set(ControlMode.PercentOutput, 1);
     launcherMotor.setInverted(true);
     launcherMotor2.follow(launcherMotor);
+
+    launcherMotor3.set(ControlMode.PercentOutput, 1);
+    launcherMotor3.setInverted(false);
+    launcherMotor4.follow(launcherMotor3);
   }
 
   public void stopLauncher() {
     launcherMotor.set(ControlMode.Velocity, 0);
     launcherMotor2.set(ControlMode.Velocity, 0);
+    launcherMotor3.set(ControlMode.Velocity, 0);
+    launcherMotor4.set(ControlMode.Velocity, 0);
   }
 }

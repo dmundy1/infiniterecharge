@@ -49,6 +49,8 @@ public final class Constants {
 	public static final class LauncherConstants {
 		public static final int LAUNCHER_MOTOR_1 = 5;
 		public static final int LAUNCHER_MOTOR_2 = 6;
+		public static final int LAUNCHER_MOTOR_3 = -1; // TBD
+		public static final int LAUNCHER_MOTOR_4 = -1; // TBD
 	}
 
 	public static final class LiftConstants {
